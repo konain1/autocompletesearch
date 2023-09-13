@@ -52,7 +52,8 @@ let filteredNames = []
     
 })
 
-createElementsFn(filteredNames)
+   createElementsFn(filteredNames)
+
 }
 
 function createElementsFn(list){
@@ -66,7 +67,14 @@ function createElementsFn(list){
         const li = document.createElement('li')
         const btn = document.createElement('button')
 
+        
+
         btn.innerHTML = names;
+        btn.addEventListener('click',(e)=>{
+            e.preventDefault()
+            inputValue.value = btn.innerHTML;
+            removeAutocompleteDropDown()
+        })
 
         li.appendChild(btn)
         ul.appendChild(li)
